@@ -21,7 +21,7 @@ downloadBtn.addEventListener("click", () => {
     const options = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "",
+        "X-RapidAPI-Key": "8b17e9f042mshf2c05bade66a115p1db1aejsn144a6b7f71a5",
         "X-RapidAPI-Host": "youtube-mp3-download1.p.rapidapi.com",
       },
     };
