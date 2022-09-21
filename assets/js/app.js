@@ -7,16 +7,28 @@ const title = document.getElementById("title");
 const duration = document.getElementById("duration");
 const downloadMp3Btn = document.getElementById("download-mp3-button");
 const isLoading = document.getElementById("loading");
+const alertBox = document.getElementById("alert");
+const failedBox = document.getElementById("warning");
 
-downloadBtn.addEventListener("click", () => {
+function getVideo() {
   // Check for Video ID
   const videoID = YouTubeGetID(link.value);
 
   if (link.value === "" || videoID.length < 5) {
     console.log("Invalid Video ID");
+    alertBox.classList.remove("d-none");
+    setTimeout(function () {
+      alertBox.classList.add("d-none");
+      // link.value = link.trim();
+    }, 5000);
+
+    //if link input contains white space set to empty
   } else {
+    downloadBtn.classList.add("disabled");
     downloadBtn.innerText = "Processing...";
-    isLoading.classList.remove("no-display");
+    link.setAttribute("disabled", "");
+    downloadBtn.classList.add("d-block");
+    console.log(isLoading);
 
     const options = {
       method: "GET",
@@ -32,17 +44,46 @@ downloadBtn.addEventListener("click", () => {
     )
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
-
-        downloadBox.classList.remove("display-none");
-        title.innerText = response.title;
-        duration.innerText = millisToMinutesAndSeconds(response.duration);
-        downloadMp3Btn.setAttribute("href", response.link);
+        switch (response.status) {
+          case "ok":
+            console.log(response);
+            console.log(response.status);
+            downloadBtn.innerText = "Download";
+            downloadBtn.classList.remove("disabled");
+            link.classList.remove("disabled");
+            link.removeAttribute("disabled", "");
+            link.value = "";
+            downloadBox.classList.remove("display-none");
+            title.innerText = response.title;
+            // duration.innerText = millisToMinutesAndSeconds(response.duration);
+            downloadMp3Btn.setAttribute("href", response.link);
+            break;
+          case "processing":
+            setTimeout(getVideo, 1000);
+            break;
+          default:
+            failedBox.classList.remove("d-none");
+            setTimeout(function () {
+              failedBox.classList.add("d-none");
+            }, 6000);
+        }
       })
       .catch((err) => console.error(err));
-
-    link.addEventListener("input", () => {
-      console.log(link.value);
-    });
   }
-});
+}
+
+downloadBtn.addEventListener("click", getVideo);
+
+link.addEventListener("input", getVideo);
+
+console.log(response);
+console.log(response.status);
+downloadBtn.innerText = "Download";
+downloadBtn.classList.remove("disabled");
+link.classList.remove("disabled");
+link.removeAttribute("disabled", "");
+link.value = "";
+downloadBox.classList.remove("display-none");
+title.innerText = response.title;
+// duration.innerText = millisToMinutesAndSeconds(response.duration);
+downloadMp3Btn.setAttribute("href", response.link);
