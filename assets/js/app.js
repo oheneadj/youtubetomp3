@@ -76,14 +76,14 @@ downloadBtn.addEventListener("click", getVideo);
 
 link.addEventListener("input", getVideo);
 
-console.log(response);
-console.log(response.status);
-downloadBtn.innerText = "Download";
-downloadBtn.classList.remove("disabled");
-link.classList.remove("disabled");
-link.removeAttribute("disabled", "");
-link.value = "";
-downloadBox.classList.remove("display-none");
-title.innerText = response.title;
-// duration.innerText = millisToMinutesAndSeconds(response.duration);
-downloadMp3Btn.setAttribute("href", response.link);
+// console.log(response);
+// console.log(response.status);
+// downloadBtn.innerText = "Download";
+// downloadBtn.classList.remove("disabled");
+// link.classList.remove("disabled");
+// link.removeAttribute("disabled", "");
+// link.value = "";
+// downloadBox.classList.remove("display-none");
+// title.innerText = response.title;
+// // duration.innerText = millisToMinutesAndSeconds(response.duration);
+// downloadMp3Btn.setAttribute("href", response.link);
