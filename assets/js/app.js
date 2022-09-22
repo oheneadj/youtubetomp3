@@ -59,9 +59,11 @@ function getVideo() {
             downloadMp3Btn.setAttribute("href", response.link);
             break;
           case "processing":
+            console.log(response.status);
             setTimeout(getVideo, 1000);
             break;
           default:
+            console.log(response.status);
             downloadBtn.innerText = "Download";
             downloadBtn.classList.remove("disabled");
             link.classList.remove("disabled");
