@@ -9,6 +9,8 @@ const downloadMp3Btn = document.getElementById("download-mp3-button");
 const isLoading = document.getElementById("loading");
 const alertBox = document.getElementById("alert");
 const failedBox = document.getElementById("warning");
+const progressBar = document.getElementById("progressBar");
+let progressStatus = 0;
 
 function getVideo() {
   // Check for Video ID
@@ -28,6 +30,8 @@ function getVideo() {
     downloadBtn.innerText = "Processing...";
     link.setAttribute("disabled", "");
     downloadBtn.classList.add("d-block");
+    progressBar.classList.remove("d-none");
+    progressBar.classList.add("d-block");
     console.log(isLoading);
 
     const options = {
@@ -48,6 +52,8 @@ function getVideo() {
           case "ok":
             console.log(response);
             console.log(response.status);
+            progressBar.style.width = "100%";
+            progressBar.innerHTML = "100%";
             downloadBtn.innerText = "Download";
             downloadBtn.classList.remove("disabled");
             link.classList.remove("disabled");
@@ -61,8 +67,11 @@ function getVideo() {
           case "processing":
             console.log(response.status);
             console.log(response.progress);
+            progressStatus = response.progress;
+            progressBar.style.width = `${progressStatus}%`;
+            progressBar.innerHTML = `${progressStatus}%`;
+            console.log(`${progressStatus}`);
             setTimeout(getVideo, 1000);
-
             break;
           default:
             console.log(response.status);
