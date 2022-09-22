@@ -60,10 +60,13 @@ function getVideo() {
             break;
           case "processing":
             console.log(response.status);
+            console.log(response.progress);
             setTimeout(getVideo, 1000);
+
             break;
           default:
             console.log(response.status);
+
             downloadBtn.innerText = "Download";
             downloadBtn.classList.remove("disabled");
             link.classList.remove("disabled");
