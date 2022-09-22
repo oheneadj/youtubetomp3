@@ -62,6 +62,10 @@ function getVideo() {
             setTimeout(getVideo, 1000);
             break;
           default:
+            downloadBtn.innerText = "Download";
+            downloadBtn.classList.remove("disabled");
+            link.classList.remove("disabled");
+            link.removeAttribute("disabled", "");
             failedBox.classList.remove("d-none");
             setTimeout(function () {
               failedBox.classList.add("d-none");
