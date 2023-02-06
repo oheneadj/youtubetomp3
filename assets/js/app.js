@@ -9,11 +9,11 @@ const downloadMp3Btn = document.getElementById("download-mp3-button");
 const isLoading = document.getElementById("loading");
 const alertBox = document.getElementById("alert");
 const failedBox = document.getElementById("warning");
-const progress = document.querySelectorAll("#progress");
+const progress = document.querySelector("#progress");
 const progressBar = document.getElementById("progressBar");
 
 let progressStatus = 0;
-console.log(`This is ${progress}`);
+console.log(progress);
 
 function getVideo() {
   // Check for Video ID
