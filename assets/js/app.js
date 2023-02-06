@@ -31,9 +31,8 @@ function getVideo() {
     downloadBtn.classList.add("disabled");
     downloadBtn.innerText = "Processing...";
     link.setAttribute("disabled", "");
-    downloadBtn.classList.add("d-block");
-
     progress.classList.remove("d-none");
+    downloadBtn.classList.add("d-block");
 
     const options = {
       method: "GET",
