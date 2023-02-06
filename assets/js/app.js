@@ -9,7 +9,7 @@ const downloadMp3Btn = document.getElementById("download-mp3-button");
 const isLoading = document.getElementById("loading");
 const alertBox = document.getElementById("alert");
 const failedBox = document.getElementById("warning");
-const progress = document.getElementById("progress");
+const progress = document.querySelectorAll("#progress");
 const progressBar = document.getElementById("progressBar");
 
 let progressStatus = 0;
