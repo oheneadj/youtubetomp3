@@ -9,8 +9,9 @@ const downloadMp3Btn = document.getElementById("download-mp3-button");
 const isLoading = document.getElementById("loading");
 const alertBox = document.getElementById("alert");
 const failedBox = document.getElementById("warning");
-const progressBar = document.getElementById("progressBar");
 const progress = document.getElementById("progress");
+const progressBar = document.getElementById("progressBar");
+
 let progressStatus = 0;
 console.log(`This is ${progress}`);
 
