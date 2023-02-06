@@ -10,6 +10,7 @@ const isLoading = document.getElementById("loading");
 const alertBox = document.getElementById("alert");
 const failedBox = document.getElementById("warning");
 const progressBar = document.getElementById("progressBar");
+const progress = document.getElementById("progress");
 let progressStatus = 0;
 
 function getVideo() {
@@ -26,13 +27,13 @@ function getVideo() {
 
     //if link input contains white space set to empty
   } else {
+    downloadBox.classList.add("d-none");
     downloadBtn.classList.add("disabled");
     downloadBtn.innerText = "Processing...";
     link.setAttribute("disabled", "");
     downloadBtn.classList.add("d-block");
-    progressBar.classList.remove("d-none");
-    progressBar.classList.add("d-block");
-    console.log(isLoading);
+
+    progress.classList.remove("d-none");
 
     const options = {
       method: "GET",
@@ -50,8 +51,6 @@ function getVideo() {
       .then((response) => {
         switch (response.status) {
           case "ok":
-            console.log(response);
-            console.log(response.status);
             progressBar.style.width = "100%";
             progressBar.innerHTML = "100%";
             downloadBtn.innerText = "Download";
@@ -59,23 +58,20 @@ function getVideo() {
             link.classList.remove("disabled");
             link.removeAttribute("disabled", "");
             link.value = "";
-            downloadBox.classList.remove("display-none");
+            downloadBox.classList.remove("d-none");
+            downloadBox.classList.remove("d-none");
             title.innerText = response.title;
             // duration.innerText = millisToMinutesAndSeconds(response.duration);
             downloadMp3Btn.setAttribute("href", response.link);
             break;
           case "processing":
-            console.log(response.status);
-            console.log(response.progress);
             progressStatus = response.progress;
             progressBar.style.width = `${progressStatus}%`;
             progressBar.innerHTML = `${progressStatus}%`;
-            console.log(`${progressStatus}`);
+
             setTimeout(getVideo, 1000);
             break;
           default:
-            console.log(response.status);
-
             downloadBtn.innerText = "Download";
             downloadBtn.classList.remove("disabled");
             link.classList.remove("disabled");
