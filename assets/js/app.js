@@ -33,8 +33,6 @@ function getVideo() {
     downloadBtn.classList.add("disabled");
     downloadBtn.innerText = "Processing...";
     link.setAttribute("disabled", "");
-    progress.classList.remove("d-none");
-    console.log(progress);
     downloadBtn.classList.add("d-block");
 
     const options = {
