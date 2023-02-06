@@ -12,7 +12,7 @@ const failedBox = document.getElementById("warning");
 const progressBar = document.getElementById("progressBar");
 const progress = document.getElementById("progress");
 let progressStatus = 0;
-console.log(progress);
+console.log(`This is ${progress}`);
 
 function getVideo() {
   // Check for Video ID
