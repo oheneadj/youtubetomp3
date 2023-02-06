@@ -12,6 +12,7 @@ const failedBox = document.getElementById("warning");
 const progressBar = document.getElementById("progressBar");
 const progress = document.getElementById("progress");
 let progressStatus = 0;
+console.log(progress);
 
 function getVideo() {
   // Check for Video ID
@@ -22,7 +23,7 @@ function getVideo() {
     alertBox.classList.remove("d-none");
     setTimeout(function () {
       alertBox.classList.add("d-none");
-      // link.value = link.trim();
+      //link.value = link.trim();
     }, 5000);
 
     //if link input contains white space set to empty
@@ -32,6 +33,7 @@ function getVideo() {
     downloadBtn.innerText = "Processing...";
     link.setAttribute("disabled", "");
     progress.classList.remove("d-none");
+    console.log(progress);
     downloadBtn.classList.add("d-block");
 
     const options = {
