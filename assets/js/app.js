@@ -59,7 +59,6 @@ function getVideo() {
             link.removeAttribute("disabled", "");
             link.value = "";
             downloadBox.classList.remove("d-none");
-            downloadBox.classList.remove("d-none");
             title.innerText = response.title;
             // duration.innerText = millisToMinutesAndSeconds(response.duration);
             downloadMp3Btn.setAttribute("href", response.link);
