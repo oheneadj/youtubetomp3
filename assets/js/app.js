@@ -13,7 +13,6 @@ const progress = document.querySelector("#progress");
 const progressBar = document.getElementById("progressBar");
 
 let progressStatus = 0;
-console.log(progress);
 
 function getVideo() {
   // Check for Video ID
@@ -34,7 +33,7 @@ function getVideo() {
     downloadBtn.innerText = "Processing...";
     link.setAttribute("disabled", "");
     downloadBtn.classList.add("d-block");
-
+    progress.classList.remove("d-none");
     const options = {
       method: "GET",
       headers: {
