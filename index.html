@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Primary Meta Tags -->
     <title>YouTube To MP3 Downloader— Convert YouTube Video To MP3</title>
-    <link rel="icon" type="image/x-icon" href="./assets/images/youtube.png" />
+    <link rel="icon" type="image/x-icon" href="./assets/images/youtube.ico" />
     <meta
       name="title"
       content="YouTube To MP3 Downloader— Convert YouTube Video To MP3"
@@ -155,7 +155,7 @@
             </form>
           </div>
         </div>
-        <div class="progress col-md-6 col-sm-12 mb-4 d-none">
+        <div id="progress" class="progress col-md-6 col-sm-12 mb-4">
           <div
             id="progressBar"
             class="progress-bar"
@@ -168,13 +168,11 @@
             0%
           </div>
         </div>
-        <div id="download-box" class="card display-none col-md-6 col-sm-12">
+        <div id="download-box" class="card d-none col-md-6 col-sm-12">
           <div class="card-body">
             <h6 class="fw-bold">
               Title:
-              <span id="title" class="text-primary">
-                This is the the song title</span
-              >
+              <span id="title" class="text-primary"> title</span>
             </h6>
             <!-- <p class="fw-semibold">
               Duration:<span id="duration" class="text-primary">
@@ -229,8 +227,9 @@
         </div>
       </main>
       <footer class="pt-5 my-5 text-muted border-top">
-        Created by <a href="http://oheneadjei.com/">Ohene Adjei</a> &middot;
-        &copy; 2022
+        Created by
+        <a target="_blank" href="http://oheneadjei.com/">Ohene Adjei</a>
+        &middot; &copy; 2023
       </footer>
     </div>
     <script
